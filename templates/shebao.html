@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+    <title>社保计算器</title>
+</head>
+<body>
+<form action="/shebao" method="post">
+<div>
+    <label for="base_money">请输入基数：</label>
+    <input type="text"
+           id="base_money"
+           name="base_money"
+           placeholder="输入范围3082~23118"
+           value="{{ base_money }}"
+    >{{ tips }}
+</div>
+<div>
+    <label for="op">请选择户口：</label>
+    <select name="op" id="op">
+        <option value="1"{% if op == 1 %}selected{% endif %}>城镇户口</option>
+        <option value="2"{% if op == 2 %}selected{% endif %}>农村户口</option>
+    </select>
+</div>
+<div>
+    <input type="submit" value="开始计算">
+</div>
+
+</form>
+{% block result %}
+
+{% endblock result %}
+
+</body>
+</html>
